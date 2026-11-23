@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Prism Barrage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="800" height="760"></canvas>
+
+  <div class="ov" id="ov-title">
+    <div class="logo">PRISM<br>BARRAGE</div>
+    <div class="sub">弾幕シューティング</div>
+    <div class="menu">
+      <button data-act="story">ゲームスタート</button>
+      <button data-act="practice">ステージ練習</button>
+      <button data-act="howto">操作説明</button>
+    </div>
+    <div class="hi" id="title-hi"></div>
+  </div>
+
+  <div class="ov" id="ov-diff">
+    <h2>難易度選択</h2>
+    <div class="menu">
+      <button data-diff="0"><b>EASY</b><small>弾がゆっくり・少なめ / 残機5</small></button>
+      <button data-diff="1"><b>NORMAL</b><small>標準 / 残機3</small></button>
+      <button data-diff="2"><b>HARD</b><small>高速・高密度 / 残機3</small></button>
+      <button data-diff="3"><b>INFERNO</b><small>極限の弾幕 / 残機2</small></button>
+    </div>
+    <button class="back" data-act="back">戻る</button>
+  </div>
+
+  <div class="ov" id="ov-stage">
+    <h2>ステージ選択</h2>
+    <div class="menu">
+      <button data-stage="0"><b>STAGE 1</b><small>夜霧の雲海</small></button>
+      <button data-stage="1"><b>STAGE 2</b><small>星雲の回廊</small></button>
+      <button data-stage="2"><b>STAGE 3</b><small>燃える機械都市</small></button>
+      <button data-stage="3"><b>STAGE 4</b><small>虹光の異界</small></button>
+    </div>
+    <button class="back" data-act="back">戻る</button>
+  </div>
+
+  <div class="ov" id="ov-howto">
+    <h2>操作説明</h2>
+    <table class="keys">
+      <tr><td>移動</td><td>マウス（カーソルに追従）/ 矢印キー / WASD</td></tr>
+      <tr><td>低速移動</td><td>Shift（当たり判定が表示）</td></tr>
+      <tr><td>ショット</td><td>自動連射</td></tr>
+      <tr><td>ボム</td><td>X / Space</td></tr>
+      <tr><td>ポーズ</td><td>右上の II ボタン / Esc / P</td></tr>
+      <tr><td>サウンド</td><td>M でミュート切替</td></tr>
+      <tr><td>スマホ</td><td>ドラッグで移動・右下ボタンでボム</td></tr>
+    </table>
+    <p class="note">弾にかすると<b>グレイズ</b>でスコア加算。<br>画面上部に行くとアイテムを自動回収。<br>ボスのスペルをノーミス・ノーボムで突破するとボーナス！</p>
+    <button class="back" data-act="back">戻る</button>
+  </div>
+
+  <div class="ov dim" id="ov-pause">
+    <h2>PAUSE</h2>
+    <div class="menu">
+      <button data-act="resume">再開</button>
+      <button data-act="retry">最初からやり直す</button>
+      <button data-act="totitle">タイトルへ</button>
+    </div>
+  </div>
+
+  <div class="ov dim" id="ov-over">
+    <h2>GAME OVER</h2>
+    <div class="result" id="over-text"></div>
+    <div class="menu">
+      <button data-act="continue">コンティニュー</button>
+      <button data-act="totitle">タイトルへ</button>
+    </div>
+  </div>
+
+  <div class="ov dim" id="ov-clear">
+    <h2 id="clear-title">STAGE CLEAR</h2>
+    <div class="result" id="clear-text"></div>
+    <div class="menu">
+      <button data-act="next" id="clear-btn">次のステージへ</button>
+    </div>
+  </div>
+
+  <div class="ov dim" id="ov-ending">
+    <h2>ALL CLEAR!</h2>
+    <div class="result" id="ending-text"></div>
+    <div class="menu">
+      <button data-act="totitle">タイトルへ</button>
+    </div>
+  </div>
+
+  <button id="btn-bomb" class="touch">BOMB</button>
+  <button id="btn-pause" class="touch">II</button>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

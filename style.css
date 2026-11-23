@@ -1,0 +1,32 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#05040c;color:#eef;font-family:"Segoe UI","Hiragino Sans","Yu Gothic UI",sans-serif;overflow:hidden;touch-action:none;user-select:none}
+body{display:flex;align-items:center;justify-content:center}
+#wrap{position:relative;height:min(100vh,95vw);aspect-ratio:800/760;box-shadow:0 0 60px #3a2a8a55}
+canvas{width:100%;height:100%;display:block;image-rendering:auto;background:#000}
+.ov{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:2.2vh;padding:4%;text-align:center}
+.ov.show{display:flex}
+.ov.dim{background:rgba(4,2,16,.72);backdrop-filter:blur(2px)}
+#ov-title{background:#07051a url(assets/title.png) center/cover no-repeat}
+#ov-title::before{content:"";position:absolute;inset:0;background:linear-gradient(#0000 30%,#05040cdd 85%)}
+#ov-title>*{position:relative}
+#ov-diff,#ov-stage,#ov-howto{background:radial-gradient(circle at 50% 30%,#1d1550,#05040c)}
+.logo{font-size:min(7.5vh,11vw);font-weight:900;letter-spacing:.12em;line-height:1;background:linear-gradient(90deg,#7ff,#c9f,#ff9,#7ff);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite;filter:drop-shadow(0 0 12px #8cf8)}
+@keyframes sh{to{background-position:300%}}
+.sub{font-size:min(2.2vh,3.4vw);letter-spacing:.5em;opacity:.85;margin-bottom:2vh}
+h2{font-size:min(4vh,6vw);letter-spacing:.15em;color:#bdf;text-shadow:0 0 10px #59f}
+.menu{display:flex;flex-direction:column;gap:1.2vh;width:78%}
+button{font:inherit;color:#eef;background:linear-gradient(#2a2160cc,#140f38cc);border:1px solid #6a5fd0;border-radius:8px;padding:1.3vh 1em;font-size:min(2.4vh,3.8vw);cursor:pointer;transition:.12s;display:flex;flex-direction:column;align-items:center;gap:.2em}
+button small{font-size:.7em;opacity:.75}
+button:hover,button:focus{outline:none;border-color:#9ff;background:linear-gradient(#4a3aa0,#241a60);box-shadow:0 0 14px #7cf8;transform:scale(1.03)}
+button.back{width:40%;margin-top:1vh}
+.hi{font-size:min(1.8vh,3vw);opacity:.8;white-space:pre-line;line-height:1.6}
+.keys{border-collapse:collapse;font-size:min(2.1vh,3.4vw)}
+.keys td{padding:.5vh 1em;border-bottom:1px solid #fff2;text-align:left}
+.keys td:first-child{color:#9ef}
+.note{font-size:min(1.9vh,3.1vw);line-height:1.7;opacity:.9}
+.result{font-size:min(2.3vh,3.8vw);line-height:1.8;white-space:pre-line}
+.touch{position:absolute;display:none;padding:0;border-radius:50%;font-size:min(1.8vh,3vw);opacity:.55}
+#btn-bomb{right:3%;bottom:3%;width:17%;aspect-ratio:1}
+#btn-pause{right:3%;top:7%;width:9%;aspect-ratio:1}
+body.is-touch.playing .touch,body.playing #btn-pause{display:flex;justify-content:center;align-items:center}
+body.playing canvas{cursor:none}
